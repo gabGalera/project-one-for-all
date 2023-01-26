@@ -2,25 +2,34 @@ DROP DATABASE IF EXISTS SpotifyClone;
 
   CREATE DATABASE IF NOT EXISTS SpotifyClone;
 
-  CREATE TABLE SpotifyClone.tabela1(
-      coluna1 tipo restricoes,
-      coluna2 tipo restricoes,
-      colunaN tipo restricoes,
-  ) engine = InnoDB;
+  CREATE TABLE SpotifyClone.plano(
+    plano VARCHAR(200) NOT NULL,
+    plano_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY
+  );
 
-  CREATE TABLE SpotifyClone.tabela2(
-      coluna1 tipo restricoes,
-      coluna2 tipo restricoes,
-      colunaN tipo restricoes,
-  ) engine = InnoDB;
-
-  INSERT INTO SpotifyClone.tabela1 (coluna1, coluna2)
+  INSERT INTO SpotifyClone.plano(plano)
   VALUES
-    ('exemplo de dados 1', 'exemplo de dados A'),
-    ('exemplo de dados 2', 'exemplo de dados B'),
-    ('exemplo de dados 3', 'exemplo de dados C');
+    ('gratuito'),
+    ('familiar'),
+    ('universitário'),
+    ('pessoal');
+  
+  CREATE TABLE SpotifyClone.usuario(
+      usuario VARCHAR(200) NOT NULL,
+      usuario_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+      plano_id INT,
+      FOREIGN KEY (plano_id) REFERENCES plano(plano_id)
+  );
 
-  INSERT INTO SpotifyClone.tabela2 (coluna1, coluna2)
+  INSERT INTO SpotifyClone.usuario(usuario, plano_id)
   VALUES
-    ('exemplo de dados 1', 'exemplo de dados X'),
-    ('exemplo de dados 2', 'exemplo de dados Y');
+    ('Barbara Liskov', 1),
+    ('Robert Cecil Martin', 1),
+    ('Ada Lovelace', 2),
+    ('Martin Fowler', 2),
+    ('Sandi Metz', 2),
+	('Paulo Freire', 3),
+    ('Bell Hooks', 3),
+    ('Christopher Alexander', 4),
+    ('Judith Butler', 4),
+    ('Jorge Amado', 4);
