@@ -23,3 +23,7 @@ LEFT JOIN
 	AUX
 ON
 	A.artista_id = AUX.artista_id
+ORDER BY
+	seguidores DESC,
+    artista,
+    album
