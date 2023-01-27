@@ -49,14 +49,14 @@ DROP DATABASE IF EXISTS SpotifyClone;
 	("Nina Simone");
         
 	CREATE TABLE SpotifyClone.albuns(
-	  albuns VARCHAR(200) NOT NULL,
-	  albuns_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	albuns VARCHAR(200) NOT NULL,
+	albuns_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
       artista_id INT,
       FOREIGN KEY (artista_id) REFERENCES artista(artista_id)
 	);
   
 	INSERT INTO SpotifyClone.albuns(albuns_id, albuns, artista_id)
-	  VALUES
+	VALUES
 		(1, "Renaissance", 1),
 		(2, "Jazz", 2),
 		(3, "Hot Space", 2),
@@ -69,22 +69,23 @@ DROP DATABASE IF EXISTS SpotifyClone;
 CREATE TABLE SpotifyClone.cancoes(
 		  cancoes VARCHAR(200) NOT NULL,
 		  cancoes_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-          albuns_id INT,
-          FOREIGN KEY (albuns_id) REFERENCES albuns(albuns_id)
+      albuns_id INT,
+      duracao_segundos INT,
+      FOREIGN KEY (albuns_id) REFERENCES albuns(albuns_id)
   );
   
-  INSERT INTO SpotifyClone.cancoes(cancoes, cancoes_id, albuns_id)
+  INSERT INTO SpotifyClone.cancoes(cancoes, cancoes_id, albuns_id, duracao_segundos)
   VALUES
-	("BREAK MY SOUL", 1, 1),
-	("VIRGO’S GROOVE", 2, 1),
-	("ALIEN SUPERSTAR", 3, 1),
-	("Don’t Stop Me Now", 4, 2),
-	("Under Pressure", 5, 3),
-	("Como Nossos Pais", 6, 4),
-	("O Medo de Amar é o Medo de Ser Livre", 7, 5),
-	("Samba em Paris", 8, 6),
-	("The Bard’s Song", 9, 7),
-	("Feeling Good", 10, 8);
+	("BREAK MY SOUL", 1, 1, 279),
+	("VIRGO’S GROOVE", 2, 1, 369),
+	("ALIEN SUPERSTAR", 3, 1, 116),
+	("Don’t Stop Me Now", 4, 2, 203),
+	("Under Pressure", 5, 3, 152),
+	("Como Nossos Pais", 6, 4, 105),
+	("O Medo de Amar é o Medo de Ser Livre", 7, 5, 207),
+	("Samba em Paris", 8, 6, 267),
+	("The Bard’s Song", 9, 7, 244),
+	("Feeling Good", 10, 8, 100);
     
   CREATE TABLE SpotifyClone.historico_de_reproducoes(
       historico_de_reproducoes VARCHAR(200) NOT NULL,

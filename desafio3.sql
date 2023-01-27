@@ -1,3 +1,5 @@
+-- WITH AUX() 
+
 SELECT 
 	U.usuario AS 'usuario',
     COUNT(H.historico_de_reproducoes) AS "qt_de_musicas_ouvidas"
