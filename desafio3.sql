@@ -15,7 +15,7 @@ WITH AUX(usuario_id, historico_de_reproducoes, duracao_segundos)AS(
 SELECT
 	MAX(U.usuario) AS 'usuario',
 	COUNT(A.historico_de_reproducoes) AS "qt_de_musicas_ouvidas",
-    COUNT(A.duracao_segundos) AS "total_minutos"
+    ROUND(SUM(A.duracao_segundos) / 60, 2) AS "total_minutos"
 FROM
 	AUX AS A
 LEFT JOIN
@@ -23,4 +23,6 @@ LEFT JOIN
 ON
 	U.usuario_id = A.usuario_id
 GROUP BY
+	U.usuario
+ORDER BY 
 	U.usuario
