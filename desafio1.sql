@@ -81,3 +81,43 @@ CREATE TABLE SpotifyClone.cancoes(
 	("The Bard’s Song", "2022-02-24 21:14:22", 9, 9),
 	("ALIEN SUPERSTAR", "2015-12-13 08:30:22", 10, 3);
     
+    CREATE TABLE SpotifyClone.artista(
+      artista VARCHAR(200) NOT NULL,
+      artista_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY
+	);
+  
+  INSERT INTO SpotifyClone.artista(artista)
+  VALUES
+    ("Beyoncé"),
+	("Queen"),
+	("Elis Regina"),
+	("Baco Exu do Blues"),
+	("Blind Guardian"),
+	("Nina Simone");
+    
+	CREATE TABLE SpotifyClone.seguindo_artista(
+      usuario_id INT,
+      artista_id INT,
+      CONSTRAINT PRIMARY KEY(usuario_id, artista_id),
+		  FOREIGN KEY (usuario_id) REFERENCES usuario(usuario_id),
+		  FOREIGN KEY (artista_id) REFERENCES artista(artista_id)
+	);
+
+    INSERT INTO SpotifyClone.seguindo_artista(usuario_id, artista_id)
+	VALUES
+		(1, 1),
+		(1, 2),
+		(1, 3),
+		(2 ,1),
+		(2, 3),
+		(3, 2),
+		(4, 4),
+		(5, 5),
+		(5, 6),
+		(6, 6),
+		(6, 1),
+		(7, 6),
+		(9, 3),
+		(10, 2);
+
+		
