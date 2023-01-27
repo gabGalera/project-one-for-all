@@ -13,16 +13,19 @@ WITH AUX(usuario_id, plano)AS(
 )
 
 SELECT
-    H.historico_de_reproducoes AS "nome",
-	COUNT(AUX.usuario_id) AS "reproducoes"
+   H.historico_de_reproducoes AS "nome",
+   COUNT(AUX.usuario_id) AS "reproducoes"
 FROM
-	AUX
-RIGHT JOIN
 	SpotifyClone.historico_de_reproducoes AS H
+LEFT JOIN
+	AUX
 ON
-	AUX.usuario_id = AUX.usuario_id
+	AUX.usuario_id = H.usuario_id
+WHERE
+	plano IS NOT NULL
 GROUP BY
 	nome
 ORDER BY
 	nome
+
 

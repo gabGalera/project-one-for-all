@@ -1,0 +1,1 @@
+SELECT cancoes FROM SpotifyClone.cancoes;
