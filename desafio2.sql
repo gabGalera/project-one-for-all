@@ -3,7 +3,7 @@ SELECT
 		SELECT
 			cancoes_id
 		FROM  
-			cancoes
+			SpotifyClone.cancoes
 		ORDER BY
 			cancoes_id DESC
 		LIMIT 1
@@ -12,7 +12,7 @@ SELECT
 		SELECT
 			artista_id
 		FROM  
-			artista
+			SpotifyClone.artista
 		ORDER BY
 			artista_id DESC
 		LIMIT 1
@@ -21,7 +21,7 @@ SELECT
 		SELECT
 			albuns_id
 		FROM  
-			albuns
+			SpotifyClone.albuns
 		ORDER BY
 			albuns_id DESC
 		LIMIT 1
