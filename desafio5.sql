@@ -1,5 +1,5 @@
 SELECT 
-	C.cancoes,
+	C.cancoes AS "cancao",
 	COUNT(H.usuario_id) AS "reproducoes"
 FROM 
 	SpotifyClone.historico_de_reproducoes AS H
