@@ -23,4 +23,4 @@ WHERE
     novo_nome LIKE "%CODE%" OR
     novo_nome LIKE "%SUPERDEV%"
 ORDER BY
-	novo_nome;
+	novo_nome DESC;
