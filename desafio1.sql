@@ -53,9 +53,9 @@ DROP DATABASE IF EXISTS SpotifyClone;
 	  albuns_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
       artista_id INT,
       FOREIGN KEY (artista_id) REFERENCES artista(artista_id)
-  );
+	);
   
-	  INSERT INTO SpotifyClone.albuns(albuns_id, albuns, artista_id)
+	INSERT INTO SpotifyClone.albuns(albuns_id, albuns, artista_id)
 	  VALUES
 		(1, "Renaissance", 1),
 		(2, "Jazz", 2),
