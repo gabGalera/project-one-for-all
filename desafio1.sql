@@ -47,7 +47,7 @@ DROP DATABASE IF EXISTS SpotifyClone;
 	("Baco Exu do Blues"),
 	("Blind Guardian"),
 	("Nina Simone");
-    
+        
 	CREATE TABLE SpotifyClone.albuns(
 	  albuns VARCHAR(200) NOT NULL,
 	  albuns_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -66,25 +66,26 @@ DROP DATABASE IF EXISTS SpotifyClone;
 		(7, "Somewhere Far Beyond", 5),
 		(8, "I Put A Spell On You", 6);
 
-
-	CREATE TABLE SpotifyClone.cancoes(
+CREATE TABLE SpotifyClone.cancoes(
 		  cancoes VARCHAR(200) NOT NULL,
-		  cancoes_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY
+		  cancoes_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+          albuns_id INT,
+          FOREIGN KEY (albuns_id) REFERENCES albuns(albuns_id)
   );
   
-  INSERT INTO SpotifyClone.cancoes(cancoes, cancoes_id)
+  INSERT INTO SpotifyClone.cancoes(cancoes, cancoes_id, albuns_id)
   VALUES
-	("BREAK MY SOUL", 1),
-	("VIRGO’S GROOVE", 2),
-	("ALIEN SUPERSTAR", 3),
-	("Don’t Stop Me Now", 4),
-	("Under Pressure", 5),
-	("Como Nossos Pais", 6),
-	("O Medo de Amar é o Medo de Ser Livre", 7),
-	("Samba em Paris", 8),
-	("The Bard’s Song", 9),
-	("Feeling Good", 10);
-
+	("BREAK MY SOUL", 1, 1),
+	("VIRGO’S GROOVE", 2, 1),
+	("ALIEN SUPERSTAR", 3, 1),
+	("Don’t Stop Me Now", 4, 2),
+	("Under Pressure", 5, 3),
+	("Como Nossos Pais", 6, 4),
+	("O Medo de Amar é o Medo de Ser Livre", 7, 5),
+	("Samba em Paris", 8, 6),
+	("The Bard’s Song", 9, 7),
+	("Feeling Good", 10, 8);
+    
   CREATE TABLE SpotifyClone.historico_de_reproducoes(
       historico_de_reproducoes VARCHAR(200) NOT NULL,
       data_reproducao DATETIME NOT NULL,
