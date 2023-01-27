@@ -34,9 +34,42 @@ DROP DATABASE IF EXISTS SpotifyClone;
     ('Judith Butler', 4),
     ('Jorge Amado', 4);
 
-CREATE TABLE SpotifyClone.cancoes(
-      cancoes VARCHAR(200) NOT NULL,
-      cancoes_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY
+  CREATE TABLE SpotifyClone.artista(
+      artista VARCHAR(200) NOT NULL,
+      artista_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY
+	);
+  
+  INSERT INTO SpotifyClone.artista(artista)
+  VALUES
+    ("Beyoncé"),
+	("Queen"),
+	("Elis Regina"),
+	("Baco Exu do Blues"),
+	("Blind Guardian"),
+	("Nina Simone");
+    
+	CREATE TABLE SpotifyClone.albuns(
+	  albuns VARCHAR(200) NOT NULL,
+	  albuns_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+      artista_id INT,
+      FOREIGN KEY (artista_id) REFERENCES artista(artista_id)
+  );
+  
+	  INSERT INTO SpotifyClone.albuns(albuns_id, albuns, artista_id)
+	  VALUES
+		(1, "Renaissance", 1),
+		(2, "Jazz", 2),
+		(3, "Hot Space", 2),
+		(4, "Falso Brilhante", 3),
+		(5, "Vento de Maio", 3),
+		(6, "QVVJFA?", 4),
+		(7, "Somewhere Far Beyond", 5),
+		(8, "I Put A Spell On You", 6);
+
+
+	CREATE TABLE SpotifyClone.cancoes(
+		  cancoes VARCHAR(200) NOT NULL,
+		  cancoes_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY
   );
   
   INSERT INTO SpotifyClone.cancoes(cancoes, cancoes_id)
@@ -80,21 +113,7 @@ CREATE TABLE SpotifyClone.cancoes(
 	("Don’t Stop Me Now", "2012-03-17 14:56:41", 8, 4),
 	("The Bard’s Song", "2022-02-24 21:14:22", 9, 9),
 	("ALIEN SUPERSTAR", "2015-12-13 08:30:22", 10, 3);
-    
-    CREATE TABLE SpotifyClone.artista(
-      artista VARCHAR(200) NOT NULL,
-      artista_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY
-	);
-  
-  INSERT INTO SpotifyClone.artista(artista)
-  VALUES
-    ("Beyoncé"),
-	("Queen"),
-	("Elis Regina"),
-	("Baco Exu do Blues"),
-	("Blind Guardian"),
-	("Nina Simone");
-    
+        
 	CREATE TABLE SpotifyClone.seguindo_artista(
       usuario_id INT,
       artista_id INT,
