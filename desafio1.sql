@@ -4,15 +4,16 @@ DROP DATABASE IF EXISTS SpotifyClone;
 
   CREATE TABLE SpotifyClone.plano(
     plano VARCHAR(200) NOT NULL,
+    valor_plano FLOAT(3, 2),
     plano_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY
   );
 
-  INSERT INTO SpotifyClone.plano(plano)
+  INSERT INTO SpotifyClone.plano(plano, valor_plano)
   VALUES
-    ('gratuito'),
-    ('familiar'),
-    ('universitário'),
-    ('pessoal');
+    ('gratuito', 0.00),
+    ('familiar', 7.99),
+    ('universitário', 5.99),
+    ('pessoal', 6.99);
   
   CREATE TABLE SpotifyClone.usuario(
       usuario VARCHAR(200) NOT NULL,
